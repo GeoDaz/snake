@@ -1,0 +1,147 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Calibri', 'Arial', sans-serif;
+}
+
+a, button{
+    transition: all 0.3s;
+}
+
+#game {
+    position: relative;
+    text-align: center
+}
+
+#board {
+    border-image: url("images/border3.png") 16 repeat !important;
+    /*border-color: #693C1B !important;*/
+    background: url("images/background.png") repeat center center;
+    background-size: 60px 60px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    box-sizing: unset;
+}
+
+#snake{
+    /*position: absolute;*/
+    display: inline-block;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+}
+
+#snake::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.square{
+    position: absolute;
+}
+
+#board > .square{
+    border-radius: 100%;
+    border: 2px solid rgba(0,0,0,0.25);
+}
+
+#snake .square{
+    background-image: url("images/snake_brick3.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#snake .square:last-child{
+    background-image: url("images/snake_head3.svg");
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.red{
+    background-color: #E82000;
+}
+
+.green{
+    background-color: #24AF00;
+}
+
+.pink{
+    background-color: hotpink;
+}
+
+.purple{
+    background-color: purple;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.cyan{
+    background-color: cyan;
+}
+
+#control-panel button{
+    border: none;
+    color: white;
+    padding: 5px 30px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 20px;
+}
+
+.disabled{
+    background-color: dimgray !important;
+}
+
+#reset {
+    background-color: orange;
+}
+
+#reset:hover,
+#reset:focus,
+#reset:active{
+    background-color: #c17d00;
+}
+
+#play {
+    background-color: limegreen;
+}
+
+#pause{
+    background-color: deepskyblue;
+}
+
+#play:hover,
+#play:focus,
+#play:active{
+    background-color: #299329;
+}
+
+#pause:hover,
+#pause:focus,
+#pause:active{
+    background-color: #048bb9;
+}
+
+#score {
+    text-align: center;
+    color: dimgrey;
+    font-size: 24px;
+    font-weight: bold;
+}
