@@ -4,33 +4,43 @@ import {observable, computed} from 'mobx';
 
 class DirectionManager{
     _direction = '>';//["^", "v", "<", ">"]
+    changeDirectionPossible = true;
+    //pour empecher que le direction change plus vite que le tour :
+    //le direction manager voit <,^,> et le game voit <,> et donc game over.
 
-    constructor(){
+    constructor(time){
         window.addEventListener('keydown', this.captureKeyboard.bind(this), true);
     }
 
     get direction(){
+        this.changeDirectionPossible = true;
         return this._direction;
     }
 
     captureKeyboard(evt){
-        if(evt.key === 'ArrowUp' && this._direction !== 'v'){
-            this._direction = "^";
-            evt.preventDefault();
+        if(this.changeDirectionPossible === true) {
+            if (evt.key === 'ArrowUp' && this._direction !== 'v') {
+                evt.preventDefault();
+                this._direction = "^";
+                //mettre prevent default uniquement a ces touches permet de garder le controle des f comme f5 ou d'espace pour faire pause.
+                this.changeDirectionPossible = false;
 
-        }else if(evt.key === 'ArrowDown' && this._direction !== '^'){
-            this._direction = "v";
-            evt.preventDefault();
+            } else if (evt.key === 'ArrowDown' && this._direction !== '^') {
+                evt.preventDefault();
+                this._direction = "v";
+                this.changeDirectionPossible = false;
 
-        }else if(evt.key === 'ArrowRight' && this._direction !== '<'){
-            this._direction = ">";
-            evt.preventDefault();
+            } else if (evt.key === 'ArrowRight' && this._direction !== '<') {
+                evt.preventDefault();
+                this._direction = ">";
+                this.changeDirectionPossible = false;
 
-        }else if(evt.key === 'ArrowLeft' && this._direction !== '>') {
-            this._direction = "<";
-            evt.preventDefault();
+            } else if (evt.key === 'ArrowLeft' && this._direction !== '>') {
+                evt.preventDefault();
+                this._direction = "<";
+                this.changeDirectionPossible = false;
+            }
         }
-        //mettre prevent default uniquement a ces touches permet de garder le controle des f comme f5 ou d'espace pour faire pause.
     }
 
     reset(){
