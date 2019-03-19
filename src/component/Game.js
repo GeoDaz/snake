@@ -17,7 +17,7 @@ class Game extends Component {
 
         return(
             <div id="game">
-                <div className="game-over" style={game.state === "GAME_OVER" ? {display:block} : {display:none}}>GAME OVER</div>
+                <div className={`game-over ${game.state === "GAME_OVER" ? "visible" : "invisible"}`}>GAME OVER</div>
                 <Board size={game.size} engine={game.engine}/>
                 <ControlPanel game={game}/>
                 <p id="score">{game.score} points</p>
