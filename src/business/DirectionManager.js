@@ -16,17 +16,21 @@ class DirectionManager{
     captureKeyboard(evt){
         if(evt.key === 'ArrowUp' && this._direction !== 'v'){
             this._direction = "^";
+            evt.preventDefault();
 
         }else if(evt.key === 'ArrowDown' && this._direction !== '^'){
             this._direction = "v";
+            evt.preventDefault();
 
         }else if(evt.key === 'ArrowRight' && this._direction !== '<'){
             this._direction = ">";
+            evt.preventDefault();
 
         }else if(evt.key === 'ArrowLeft' && this._direction !== '>') {
             this._direction = "<";
+            evt.preventDefault();
         }
-        evt.preventDefault();
+        //mettre prevent default uniquement a ces touches permet de garder le controle des f comme f5 ou d'espace pour faire pause.
     }
 
     reset(){

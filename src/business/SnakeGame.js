@@ -24,8 +24,14 @@ class SnakeGame {
     set level(lvl){
         if (lvl < 1 || lvl > 5) throw "Illegal level";
         if (this.state === 'PLAY' || this.state === 'PAUSE') return;
-        
-        this._level = lvl;
+
+        if(typeof lvl !== 'number'){
+            this._level = parseInt(lvl);
+        } else {
+            this._level = lvl;
+        }
+
+
     }
 
     start(){
@@ -46,7 +52,6 @@ class SnakeGame {
     }
 
     reset(){
-        console.log(this.state);
         if(this.state === "NEW_GAME") return;
         
         if(this.state === "PLAY"){
@@ -61,14 +66,10 @@ class SnakeGame {
         this.directionManager.reset();
         this.score = 0;
         this.state = "NEW_GAME";
-        console.log(this.state);
     }
     
     playTurn(){
-        console.log("turn : "+this.state);
         if(this.state !== "PLAY") return;
-
-        console.log(this.directionManager.direction);
         
         switch(this.engine.move(this.directionManager.direction)){
             case 0: //le serpent a bougé, il ne s'est rien passé

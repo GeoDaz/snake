@@ -118,7 +118,6 @@ class SnakeEngine{
     }
 
     reset(){
-        console.log('reset engine');
         const y = Math.ceil(this.gridSize /2);
         const xBase = Math.ceil( (this.gridSize - this.initialSnakeSize) /2);
 
