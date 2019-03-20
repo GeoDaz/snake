@@ -16,11 +16,11 @@ class Level extends Component {
     render(){
 
         return(
-            <select id="difficulte" name="difficulte" defaultValue={`Niveau ${this.props.snakeGame.level}`} onChange={() => {
-                this.props.snakeGame.level = document.getElementById("difficulte").value.replace('Niveau ','');
+            <select id="difficulte" name="difficulte" defaultValue={`Niveau ${this.props.snakeGame.level}`} onChange={(evt) => {
+                this.props.snakeGame.level = evt.target.value;
             }}>
                 {this.levels.map(
-                    (level, i) => <option key={i}>Niveau {level}</option>
+                    (level, i) => <option key={i} value={level}>Niveau {level}</option>
                 )}
             </select>
         );
