@@ -140,20 +140,28 @@ a, button{
     background-color: #299329;
 }
 
-#pause,
-#difficulte,
-#difficulte option:hover,
-#difficulte option:focus,
-#difficulte option:active{
+#pause{
     background-color: deepskyblue;
 }
 
 #pause:hover,
 #pause:focus,
-#pause:active,
-#difficulte:hover,
-#difficulte:focus {
+#pause:active{
     background-color: #048bb9;
+}
+
+#difficulte,
+#difficulte option{
+    background-color: #d03c2f;
+}
+
+
+#difficulte:hover,
+#difficulte:focus,
+#difficulte option:hover,
+#difficulte option:focus,
+#difficulte option:active{
+    background-color: #9e3129;
 }
 
 #score {
