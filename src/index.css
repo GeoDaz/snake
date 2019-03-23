@@ -15,25 +15,33 @@ a, button{
     position: relative;
     text-align: center;
     background: url("images/gameBackground.svg") no-repeat center center;
-    /*background: linear-gradient(to right, #0083B0, #00B4DB) no-repeat center center;*/
-    /*background: linear-gradient(to bottom, #FFEFBA, #FFFFFF) no-repeat center center;*/
-    /*background: linear-gradient(to right, #0F2027, #203A43, #2C5364) no-repeat center center;*/
     background-size: cover;
     padding: 20px 0;
     min-height: 100vh;
 }
 
 #board {
-    border-image: url("images/border3.png") 16 repeat !important;
-    /*border-color: #693C1B !important;*/
-    background: url("images/background.png") repeat center center;
-    background-size: 60px 60px;
+    /*border-image: url("images/border3.png") 16 repeat !important;*/
+    border-color: #1e9850 !important;
+    background: url("images/boardBackground.svg") repeat top left;
+    background-size: 32px 32px;
     position: relative;
     width: 200px;
     height: 200px;
     margin: 0 auto 20px;
     box-sizing: unset;
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
+}
+
+#board::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.3) inset;
 }
 
 #snake{
@@ -53,17 +61,33 @@ a, button{
 #board > .square{
     border-radius: 100%;
     border: 2px solid rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+#board > .square::before{
+    content: url("images/leaf.svg");
+    display: block;
+    position: absolute;
+    height: 125%;
+    width: 125%;
+    top: -75%;
+    left: 50%;
+    z-index: -1;
 }
 
 #snake .square{
-    background-image: url("images/snake_brick3.svg");
+    background-image: url("images/snake_brick.svg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #snake .square:last-child{
-    background-image: url("images/snake_head3.svg");
+    background-image: url("images/snake_head.svg");
+}
+
+.snake-brick{
+    background-color: #E82000;
 }
 
 .black{
@@ -75,15 +99,15 @@ a, button{
 }
 
 .blue{
-    background-color: blue;
+    background-color: deepskyblue;
 }
 
 .red{
-    background-color: #E82000;
+    background-color: #d03c2f;
 }
 
 .green{
-    background-color: #24AF00;
+    background-color: #299329;
 }
 
 .pink{
@@ -91,7 +115,7 @@ a, button{
 }
 
 .purple{
-    background-color: purple;
+    background-color: #804780;
 }
 
 .orange{
@@ -102,9 +126,6 @@ a, button{
     background-color: yellow;
 }
 
-.cyan{
-    background-color: cyan;
-}
 
 #control-panel button{
     border: none;
@@ -125,8 +146,7 @@ a, button{
 }
 
 #reset:hover,
-#reset:focus,
-#reset:active{
+#reset:focus{
     background-color: #c17d00;
 }
 
@@ -135,8 +155,7 @@ a, button{
 }
 
 #play:hover,
-#play:focus,
-#play:active{
+#play:focus{
     background-color: #299329;
 }
 
@@ -145,8 +164,7 @@ a, button{
 }
 
 #pause:hover,
-#pause:focus,
-#pause:active{
+#pause:focus{
     background-color: #048bb9;
 }
 
@@ -159,8 +177,7 @@ a, button{
 #difficulte:hover,
 #difficulte:focus,
 #difficulte option:hover,
-#difficulte option:focus,
-#difficulte option:active{
+#difficulte option:focus{
     background-color: #9e3129;
 }
 
@@ -168,7 +185,7 @@ a, button{
     text-align: center;
     color: white; /*dimgrey;*/
     padding: 5px 20px;
-    background-color: #555;
+    background-color: #f8844c;
     display: inline-block;
     font-size: 24px;
     font-weight: bold;

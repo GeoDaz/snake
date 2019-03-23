@@ -14,9 +14,13 @@ class Level extends Component {
     }
 
     render(){
+        let disabled = false;
+        if(this.props.snakeGame.state === 'PLAY' || this.props.snakeGame.state === 'PAUSE'){
+            disabled = true;
+        }
 
         return(
-            <select id="difficulte" name="difficulte" defaultValue={`Niveau ${this.props.snakeGame.level}`} onChange={(evt) => {
+            <select id="difficulte" name="difficulte" className={disabled ? "disabled" : ''} disabled={disabled} defaultValue={`Niveau ${this.props.snakeGame.level}`} onChange={(evt) => {
                 this.props.snakeGame.level = evt.target.value;
             }}>
                 {this.levels.map(

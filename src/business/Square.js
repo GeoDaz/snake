@@ -6,16 +6,16 @@ import { render } from 'react-dom';
 import Position from './Position';
 
 const colorList = [
-    // 'red',
-    // 'green',
-    'black',
+    'red',
+    'green',
+    // 'black',
     'orange',
     'pink',
     'purple',
-    'white',
+    // 'white',
     'blue',
     'yellow',
-    'cyan',
+    // 'cyan',
 ];
 
 export default class Square extends Position {
@@ -37,7 +37,7 @@ export default class Square extends Position {
 }
 
 export function createSnakeSquare(position){
-    return new Square(position.x, position.y, 'red');
+    return new Square(position.x, position.y, 'snake-brick');
 }
 
 export function createRandomColorSquare(position){
